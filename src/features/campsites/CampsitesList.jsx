@@ -1,11 +1,11 @@
-import {CAMPSITES} from '../../app/shared/CAMPSITES'
 import {Col, Row} from 'reactstrap'
 import CampsiteCard from './CampsiteCard'
+import { selectAllCampsites } from './camspitesSlice';
 
 const CampsitesList = () => {
-    
+
     const campsites = selectAllCampsites();
-    const renderedCampsites = CAMPSITES.map((campsite) => {
+    const renderedCampsites = campsites.map((campsite) => {
         return (
             <Col md='5' className='m-4 campsites-col' key={campsite.id}>
                 <CampsiteCard campsite={campsite}/>
