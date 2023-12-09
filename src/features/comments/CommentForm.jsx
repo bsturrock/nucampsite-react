@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import validateCommentForm from "../../utils/validateCommentForm";
+import {validateCommentForm} from "../../utils/validateCommentForm";
 
 const CommentForm = ({campsiteId}) => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -37,7 +37,7 @@ const CommentForm = ({campsiteId}) => {
                                 <option>Select...</option>
                                 <option>1</option>
                                 <option>2</option>
-                                <option>3</option>ß
+                                <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
                             </Field>

@@ -10,5 +10,3 @@ export const validateCommentForm = (values) => {
     }
     return errors;
 };
-
-export default validateCommentForm
