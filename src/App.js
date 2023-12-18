@@ -7,8 +7,15 @@ import CampsitesDirectoryPage from './pages/CampsitesDirectoryPage';
 import CampsiteDetailPage from './pages/CampsiteDetailPage';
 import './App.css';
 import AboutPage from './pages/AboutPage';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCampsites } from './features/campsites/campsitesSlice';
 
 function App() {
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(fetchCampsites(),[dispatch])
+    })
     return (
         <div className='App'>
             <Header />
