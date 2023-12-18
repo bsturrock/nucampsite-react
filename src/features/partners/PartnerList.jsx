@@ -1,9 +1,13 @@
-import {Col} from 'reactstrap'
+import {Col, Row} from 'reactstrap'
 import Partner from './Partner'
 import { selectAllPartners } from './partnersSlice'
 import { useSelector } from 'react-redux'
+import Error from '../../components/Error'
+import Loading from '../../components/Loading'
 
 const PartnerList = () => {
+    const isLoading = useSelector((state) => state.partners.isLoading);
+    const errMsg = useSelector((state) => state.partners.errMsg);
     const partners = useSelector(selectAllPartners)
     const renderedPartners = partners.map((partner)=>{
         return (
@@ -12,11 +16,17 @@ const PartnerList = () => {
             </div>
         )
     })
-    return (
-        <Col className="mt-4">
-            {renderedPartners}
+    return isLoading ? (
+        <Loading />
+    ) : errMsg ? (
+        <Error errMsg={errMsg} />
+    ) : (
+        <Col className='mt-4'>
+            <Row>
+                {renderedPartners}
+            </Row>
         </Col>
-    )
+    );
 }
 
 export default PartnerList
